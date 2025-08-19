@@ -23,7 +23,7 @@ public class StayAvailabilityController {
 	StayAvailabilityService stayAvailabilityService;
 
 	@GetMapping
-	public ResponseEntity<List<StayAvailability>> fetchAvailByStayAndRoomDetails(@RequestParam String stayId,
+	public ResponseEntity<List<StayAvailability>> fetchAvailByStayAndRoomDetails(@RequestParam Long stayId,
 			@RequestParam LocalDate startDate, @RequestParam LocalDate endDate) {
 		List<StayAvailability> availabilities = stayAvailabilityService.findByKeyStayIdAndKeyDate(stayId, startDate,
 				endDate);

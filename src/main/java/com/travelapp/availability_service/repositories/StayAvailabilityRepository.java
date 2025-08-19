@@ -12,8 +12,9 @@ import com.travelapp.availability_service.entities.StayAvailability;
 @Repository
 public interface StayAvailabilityRepository extends CassandraRepository<StayAvailability, StayAvailabilityKey> {
 
-    List<StayAvailability> findByKeyStayIdAndKeyDateBetween(String stayId, LocalDate startDate, LocalDate endDate);
+    List<StayAvailability> findByKeyStayIdAndKeyDateBetween(Long stayId, LocalDate startDate, LocalDate endDate);
 
     List<StayAvailability> findByKeyStayIdAndKeyDateBetweenAndKeyRoomId(
-            String stayId, LocalDate startDate, LocalDate endDate, int roomId);
+            Long stayId, LocalDate startDate, LocalDate endDate, int roomId);
+    List<StayAvailability> findByKeyStayIdAndKeyDateGreaterThanEqual(Long stayId, LocalDate date);
 }

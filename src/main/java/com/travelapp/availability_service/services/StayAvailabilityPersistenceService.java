@@ -27,7 +27,7 @@ public class StayAvailabilityPersistenceService {
         }
     }
 
-    private void createAvailabilitiesForStay(LocalDate startDate, LocalDate endDate, StayRoomMappingDto stay) {
+    public void createAvailabilitiesForStay(LocalDate startDate, LocalDate endDate, StayRoomMappingDto stay) {
         Long stayId = stay.getStayId();
         Set<RoomCount> rooms = stay.getRoomIdWithCount();
         Instant now = Instant.now();

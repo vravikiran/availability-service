@@ -26,7 +26,7 @@ public class StayAvailabilityService {
     @Autowired
     private StayAvailabilityPersistenceService stayAvailabilityPersistenceService;
 
-    public List<StayAvailability> findByKeyStayIdAndKeyDate(@RequestParam String stayId,
+    public List<StayAvailability> findByKeyStayIdAndKeyDate(@RequestParam Long stayId,
                                                             @RequestParam LocalDate startDate, @RequestParam LocalDate endDate) {
         return stayAvailabilityRepository.findByKeyStayIdAndKeyDateBetween(stayId,
                 startDate, endDate);
