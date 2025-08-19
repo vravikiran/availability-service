@@ -56,9 +56,13 @@ public class StayDetailConsumer {
 
     private void updateAvailabilities(StayDetailDto stayDetailDto) {
         boolean isActive = stayDetailDto.isActive();
-        if(!isActive) {
-           List<StayAvailability> availabilities = stayAvailabilityRepository.findByKeyStayIdAndKeyDateGreaterThanEqual(stayDetailDto.getId(),LocalDate.now());
-           stayAvailabilityRepository.deleteAll(availabilities);
+        if (!isActive) {
+            List<StayAvailability> availabilities = stayAvailabilityRepository.findByKeyStayIdAndKeyDateGreaterThanEqual(stayDetailDto.getId(), LocalDate.now());
+            List<StayAvailability> updatedAvailabilities = availabilities.stream().map(stayAvailability -> {
+                stayAvailability.setIsAvailable(false);
+                return stayAvailability;
+            }).toList();
+            stayAvailabilityRepository.saveAll(updatedAvailabilities);
         } else {
             createAvailabilities(stayDetailDto);
         }
