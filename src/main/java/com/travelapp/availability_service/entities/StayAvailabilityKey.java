@@ -18,10 +18,10 @@ public class StayAvailabilityKey implements Serializable {
     @PrimaryKeyColumn(name = "stay_id", ordinal = 0, type = PrimaryKeyType.PARTITIONED)
     private Long stayId;
 
-    @PrimaryKeyColumn(name = "date", ordinal = 1, type = PrimaryKeyType.CLUSTERED)
+    @PrimaryKeyColumn(name = "date", ordinal = 2, type = PrimaryKeyType.CLUSTERED)
     private LocalDate date;
 
-    @PrimaryKeyColumn(name = "room_id", ordinal = 2, type = PrimaryKeyType.CLUSTERED)
+    @PrimaryKeyColumn(name = "room_id", ordinal = 1, type = PrimaryKeyType.CLUSTERED)
     private int roomId;
 
 }
